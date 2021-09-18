@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{F6D32CE9-530F-42B2-8985-6FD4D0365B7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuoEditor.Media.Api", "src\DuoEditor.Media.Api\DuoEditor.Media.Api.csproj", "{926983EB-FCA3-4DD5-8A82-F0F48BFA7A69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuoEditor.Media.App", "src\DuoEditor.Media.App\DuoEditor.Media.App.csproj", "{E6F2D2CE-2977-4CE6-ABC4-6A55C883B5E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuoEditor.Media.Domain", "src\DuoEditor.Media.Domain\DuoEditor.Media.Domain.csproj", "{FE965C14-B1B1-4322-93A9-D60C564672F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DuoEditor.Media.Infra", "src\DuoEditor.Media.Infra\DuoEditor.Media.Infra.csproj", "{228E4245-6822-4D5B-B6A5-45AAD0D3280D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{926983EB-FCA3-4DD5-8A82-F0F48BFA7A69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{926983EB-FCA3-4DD5-8A82-F0F48BFA7A69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{926983EB-FCA3-4DD5-8A82-F0F48BFA7A69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{926983EB-FCA3-4DD5-8A82-F0F48BFA7A69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6F2D2CE-2977-4CE6-ABC4-6A55C883B5E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6F2D2CE-2977-4CE6-ABC4-6A55C883B5E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6F2D2CE-2977-4CE6-ABC4-6A55C883B5E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6F2D2CE-2977-4CE6-ABC4-6A55C883B5E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE965C14-B1B1-4322-93A9-D60C564672F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE965C14-B1B1-4322-93A9-D60C564672F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE965C14-B1B1-4322-93A9-D60C564672F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE965C14-B1B1-4322-93A9-D60C564672F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{228E4245-6822-4D5B-B6A5-45AAD0D3280D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{228E4245-6822-4D5B-B6A5-45AAD0D3280D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{228E4245-6822-4D5B-B6A5-45AAD0D3280D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{228E4245-6822-4D5B-B6A5-45AAD0D3280D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{926983EB-FCA3-4DD5-8A82-F0F48BFA7A69} = {F6D32CE9-530F-42B2-8985-6FD4D0365B7A}
+		{E6F2D2CE-2977-4CE6-ABC4-6A55C883B5E1} = {F6D32CE9-530F-42B2-8985-6FD4D0365B7A}
+		{FE965C14-B1B1-4322-93A9-D60C564672F2} = {F6D32CE9-530F-42B2-8985-6FD4D0365B7A}
+		{228E4245-6822-4D5B-B6A5-45AAD0D3280D} = {F6D32CE9-530F-42B2-8985-6FD4D0365B7A}
+	EndGlobalSection
+EndGlobal
