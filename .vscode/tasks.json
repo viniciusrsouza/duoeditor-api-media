@@ -32,11 +32,67 @@
       "args": [
         "watch",
         "run",
+        "--project",
         "${workspaceFolder}/src/DuoEditor.Media.Api/DuoEditor.Media.Api.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
       "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "make migration",
+      "command": "dotnet",
+      "type": "shell",
+      "args": [
+        "ef",
+        "--startup-project",
+        "${workspaceFolder}/src/DuoEditor.Media.Api",
+        "--project",
+        "${workspaceFolder}/src/DuoEditor.Media.Infra",
+        "migrations",
+        "add",
+        "${input:migrationName}",
+        "--verbose"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "remove migration",
+      "command": "dotnet",
+      "type": "shell",
+      "args": [
+        "ef",
+        "--startup-project",
+        "${workspaceFolder}/src/DuoEditor.Media.Api",
+        "--project",
+        "${workspaceFolder}/src/DuoEditor.Media.Infra",
+        "migrations",
+        "remove"
+      ],
+      "problemMatcher": "$msCompile"
+    },
+    {
+      "label": "migrate",
+      "command": "dotnet",
+      "type": "shell",
+      "args": [
+        "ef",
+        "--startup-project",
+        "${workspaceFolder}/src/DuoEditor.Media.Api",
+        "--project",
+        "${workspaceFolder}/src/DuoEditor.Media.Infra",
+        "database",
+        "update"
+      ],
+      "problemMatcher": "$msCompile"
+    }
+  ],
+  "inputs": [
+    {
+      "id": "migrationName",
+      "type": "promptString",
+      "description": "Type the name of the migration",
+      "default": "UnnamedMigration"
     }
   ]
 }

@@ -12,9 +12,10 @@
     "DuoEditor.Media.Api": {
       "commandName": "Project",
       "dotnetRunMessages": true,
+      "hotReloadProfile": "aspnetcore",
       "launchBrowser": true,
       "launchUrl": "swagger",
-      "applicationUrl": "https://localhost:7219;http://localhost:5175",
+      "applicationUrl": "https://localhost:7219;http://localhost:5002",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
