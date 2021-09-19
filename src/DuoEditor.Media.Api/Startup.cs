@@ -1,10 +1,10 @@
+using DuoEditor.Internal.Auth.Clients;
+using DuoEditor.Internal.Auth.Config;
 using DuoEditor.Media.App.Config;
 using DuoEditor.Media.App.Interfaces;
 using DuoEditor.Media.Infra.Config;
 using DuoEditor.Media.Infra.Persistence;
 using DuoEditor.Media.Infra.Repositories;
-using DuoEditor.Media.Service.Clients;
-using DuoEditor.Media.Service.Config;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using ServiceStack.Redis;

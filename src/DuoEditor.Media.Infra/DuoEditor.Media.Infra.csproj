@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Azure.Storage.Blobs" Version="12.10.0" />
+    <PackageReference Include="DuoEditor.Internal.Auth" Version="1.0.0-rc1.0.2" />
     <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="5.0.10" />
     <PackageReference Include="ServiceStack.Redis" Version="5.12.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
@@ -18,6 +19,5 @@
   <ItemGroup>
     <ProjectReference Include="..\DuoEditor.Media.Domain\DuoEditor.Media.Domain.csproj" />
     <ProjectReference Include="..\DuoEditor.Media.App\DuoEditor.Media.App.csproj" />
-    <ProjectReference Include="..\DuoEditor.Media.Service\DuoEditor.Media.Service.csproj" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 using System.Text.Json;
-using DuoEditor.Media.Service.Cache;
-using DuoEditor.Media.Service.Models;
+using DuoEditor.Internal.Auth.Cache;
+using DuoEditor.Internal.Auth.Models;
 using ServiceStack.Redis;
 
 namespace DuoEditor.Media.Infra.Repositories

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="DotNetEnv" Version="2.2.0" />
+    <PackageReference Include="DuoEditor.Internal.Auth" Version="1.0.0-rc1.0.2" />
     <PackageReference Include="MediatR" Version="9.0.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="9.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.5" />
@@ -19,7 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DuoEditor.Media.Service\DuoEditor.Media.Service.csproj" />
     <ProjectReference Include="..\DuoEditor.Media.Infra\DuoEditor.Media.Infra.csproj" />
   </ItemGroup>
 
