@@ -30,17 +30,20 @@ namespace DuoEditor.Media.Infra.Repositories
       }
     }
 
-    public async Task<bool> Set(string fileName, Stream fileStream)
+    public Task<bool> Set(string fileName, Stream fileStream)
     {
       try
       {
-        await _userImagesClient.DeleteBlobIfExistsAsync(fileName);
-        await _userImagesClient.UploadBlobAsync(fileName, fileStream);
-        return true;
+        Task.Run(async () =>
+        {
+          await _userImagesClient.DeleteBlobIfExistsAsync(fileName);
+          await _userImagesClient.UploadBlobAsync(fileName, fileStream);
+        });
+        return Task.FromResult(true);
       }
       catch
       {
-        return false;
+        return Task.FromResult(false);
       }
     }
   }

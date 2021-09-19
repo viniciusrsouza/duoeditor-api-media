@@ -1,3 +1,4 @@
+using System.Text.Json;
 using DuoEditor.Media.Service.Cache;
 using DuoEditor.Media.Service.Models;
 using ServiceStack.Redis;
@@ -17,7 +18,9 @@ namespace DuoEditor.Media.Infra.Repositories
       await using var redis = await _manager.GetClientAsync();
       try
       {
-        return await redis.GetAsync<UserModel>(token);
+        var serializedUser = await redis.GetAsync<string>(token);
+        var user = JsonSerializer.Deserialize<UserModel>(serializedUser);
+        return user;
       }
       catch
       {
@@ -27,9 +30,10 @@ namespace DuoEditor.Media.Infra.Repositories
 
     public async Task<UserModel?> SetUser(string token, UserModel user, long expiration)
     {
-      var expirationDate = DateTimeOffset.UnixEpoch.AddMilliseconds(expiration).DateTime;
+      var expirationDate = DateTimeOffset.UnixEpoch.AddSeconds(expiration).DateTime;
+      var serializedUser = JsonSerializer.Serialize(user);
       await using var redis = await _manager.GetClientAsync();
-      await redis.AddAsync(token, user, expirationDate);
+      await redis.AddAsync(token, serializedUser, expirationDate);
       return user;
     }
   }
