@@ -33,20 +33,32 @@ namespace DuoEditor.Media.Infra.Repositories
 
     public async Task<UserImage?> Set(string fileName, Stream fileStream, int userId)
     {
-      var entry =
-        await _context.UserImages.FindAsync(userId) ??
-        (await _context.UserImages.AddAsync(new UserImage(userId, fileName))).Entity;
-      if (entry != null)
+      var path = await _mediaRepository.Set(fileName, fileStream);
+
+      if (path == null)
       {
-        var added = await _mediaRepository.Set(fileName, fileStream);
-        if (added)
-        {
-          await _context.SaveChangesAsync();
-          return entry;
-        }
+        return null;
       }
 
-      return null;
+      var entry = await _context.UserImages.FindAsync(userId);
+
+      if (entry != null)
+      {
+        entry.FileName = path;
+        _context.Update(entry);
+      }
+      else
+      {
+        entry = (await _context.UserImages.AddAsync(new UserImage(userId, path))).Entity;
+      }
+
+      await _context.SaveChangesAsync();
+      return entry;
+    }
+
+    public async Task<UserImage?> Get(int userId)
+    {
+      return await _context.UserImages.FindAsync(userId);
     }
   }
 }

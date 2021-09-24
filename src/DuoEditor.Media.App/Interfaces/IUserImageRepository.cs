@@ -6,5 +6,6 @@ namespace DuoEditor.Media.App.Interfaces
   {
     Task<UserImage?> Set(string fileName, Stream fileStream, int userId);
     Task<bool> Remove(int userId);
+    Task<UserImage?> Get(int userId);
   }
 }

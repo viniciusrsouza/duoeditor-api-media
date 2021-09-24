@@ -9,12 +9,13 @@ namespace DuoEditor.Media.Infra.Repositories
   {
     private readonly BlobServiceClient _client;
     private readonly BlobContainerClient _userImagesClient;
+    private readonly MediaConfig _config;
     public MediaRepository(IOptions<MediaConfig> options)
     {
-      var config = options.Value;
-      var connectionString = Environment.GetEnvironmentVariable(config.ConnectionString);
+      _config = options.Value;
+      var connectionString = Environment.GetEnvironmentVariable(_config.ConnectionString);
       _client = new BlobServiceClient(connectionString);
-      _userImagesClient = _client.GetBlobContainerClient(config.ProfileImageContainer);
+      _userImagesClient = _client.GetBlobContainerClient(_config.ProfileImageContainer);
     }
 
     public async Task<bool> Remove(string fileName)
@@ -30,20 +31,18 @@ namespace DuoEditor.Media.Infra.Repositories
       }
     }
 
-    public Task<bool> Set(string fileName, Stream fileStream)
+    public async Task<string?> Set(string fileName, Stream fileStream)
     {
       try
       {
-        Task.Run(async () =>
-        {
-          await _userImagesClient.DeleteBlobIfExistsAsync(fileName);
-          await _userImagesClient.UploadBlobAsync(fileName, fileStream);
-        });
-        return Task.FromResult(true);
+        await _userImagesClient.DeleteBlobIfExistsAsync(fileName);
+        await _userImagesClient.UploadBlobAsync(fileName, fileStream);
+
+        return $"{_config.StorageUri}{_config.ProfileImageContainer}/{fileName}";
       }
       catch
       {
-        return Task.FromResult(false);
+        return null;
       }
     }
   }

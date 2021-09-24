@@ -4,5 +4,6 @@ namespace DuoEditor.Media.Infra.Config
   {
     public string ConnectionString { get; set; } = null!;
     public string ProfileImageContainer { get; set; } = null!;
+    public string StorageUri { get; set; } = null!;
   }
 }

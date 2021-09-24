@@ -14,7 +14,11 @@ namespace DuoEditor.Media.App.UseCases
 
     public async Task<UserImage?> Handle(SetUserImage argument, CancellationToken cancellationToken)
     {
-      return await _repository.Set(argument.FileName, argument.FileStream, argument.UserId);
+      var extension = argument.FileName.Split(".").LastOrDefault("");
+      var fileNameArray = new string[] { $"profile-picture-{argument.UserId}", extension };
+      var fileName = String.Join('.', fileNameArray);
+
+      return await _repository.Set(fileName, argument.FileStream, argument.UserId);
     }
   }
 }
