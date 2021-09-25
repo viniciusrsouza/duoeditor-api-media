@@ -15,3 +15,12 @@ services:
       dockerfile: Dockerfile
     ports:
       - "6380:6379"
+  media_api:
+    image: duoeditor/media
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    ports:
+      - "5002:80"
